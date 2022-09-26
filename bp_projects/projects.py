@@ -25,3 +25,7 @@ def hawkers():
 @app_projects.route('/Kaiden/')
 def Kaiden():
     return render_template("Kaiden.html")
+
+@app_projects.route('/Square/')
+def square():
+    return render_template("square.html")

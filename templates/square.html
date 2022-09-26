@@ -1,0 +1,126 @@
+<!-- Extending the predefined project layout -->
+{% extends "layouts/base.html" %}
+
+<!- This variable sets name of browser tab  -->
+{% set project = "Square" %}
+
+<!- This is a replacement block for Body in base.html -->
+{% block body %}
+    <style>
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .button {
+            background-color: grey;
+            border: none;
+            color: white;
+            width: 100px;
+            height: 100px;
+            padding: 0px 0px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px 5px;
+            cursor: pointer;
+
+        }
+    </style>
+    <!- Try building a new body here, bootstrap is a wise choice ->
+    <div class="px-5 py-5 mx-auto">
+        <h1 class="text-primary"><strong>CLICK THEM</strong></h1>
+    </div>
+    <button id="btn1" class="button"></button>
+    <button id="btn2" class="button"></button>
+    <button id="btn3" class="button"></button>
+    <br>
+    <button id="btn4" class="button"></button>
+    <button id="btn5" class="button"></button>
+    <button id="btn6" class="button"></button>
+    <br>
+    <button id="btn7" class="button"></button>
+    <button id="btn8" class="button"></button>
+    <button id="btn9" class="button"></button> <button id="reset" class="btn btn-primary">Reset</button>
+    <br>
+
+    <script>
+        var bp = 0;
+
+        const btn1 = document.getElementById('btn1');
+        const btn2 = document.getElementById('btn2');
+        const btn3 = document.getElementById('btn3');
+        const btn4 = document.getElementById('btn4');
+        const btn5 = document.getElementById('btn5');
+        const btn6 = document.getElementById('btn6');
+        const btn7 = document.getElementById('btn7');
+        const btn8 = document.getElementById('btn8');
+        const btn9 = document.getElementById('btn9');
+        const reset = document.getElementById('reset');
+
+        function grey(){
+            btn1.style.backgroundColor = 'grey';
+            btn2.style.backgroundColor = 'grey';
+            btn3.style.backgroundColor = 'grey';
+            btn4.style.backgroundColor = 'grey';
+            btn5.style.backgroundColor = 'grey';
+            btn6.style.backgroundColor = 'grey';
+            btn7.style.backgroundColor = 'grey';
+            btn8.style.backgroundColor = 'grey';
+            btn9.style.backgroundColor = 'grey';
+            bp = 0;
+        }
+
+        function color(num){
+            if(bp==0){
+                num.style.backgroundColor = 'blue';
+                bp=1;
+            }
+            else if(bp==1){
+                num.style.backgroundColor = 'red';
+                bp=0;
+            } 
+        }
+
+        reset.addEventListener('click', function onClick() {
+            grey();
+        });
+        
+        btn1.addEventListener('click', function onClick() {
+            color(btn1);
+        });
+        btn2.addEventListener('click', function onClick() {
+            color(btn2);
+        });
+        btn3.addEventListener('click', function onClick() {
+            color(btn3);
+        });
+        btn4.addEventListener('click', function onClick() {
+            color(btn4);
+        });
+        btn5.addEventListener('click', function onClick() {
+            color(btn5);
+        });
+        btn6.addEventListener('click', function onClick() {
+            color(btn6);
+        });
+        btn7.addEventListener('click', function onClick() {
+            color(btn7);
+        });
+        btn8.addEventListener('click', function onClick() {
+            color(btn8);
+        });
+        btn9.addEventListener('click', function onClick() {
+            color(btn9, s9);
+        });
+
+
+
+
+    </script>
+{% endblock %}
+
+<!- This is turning off birds background from base.html -->
+{% block background %}
+{% endblock %}

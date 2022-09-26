@@ -21,6 +21,10 @@ def index():
 def Kaiden():
     return render_template("Kaiden.html")
 
+@app.route('/Square/')  # connects /stub/ URL to stub() function
+def square():
+    return render_template("square.html")
+
 # this runs the application on the development server
 if __name__ == "__main__":
     app.run(debug=True)
