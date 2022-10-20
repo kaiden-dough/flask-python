@@ -5,11 +5,11 @@ import random
 
 from model_truefalse import *
 
-app_api = Blueprint('api', __name__,
+app_api1 = Blueprint('apitf', __name__,
                    url_prefix='/api/trfa')
 
 # API generator https://flask-restful.readthedocs.io/en/latest/api.html#id1
-api = Api(app_api)
+api1 = Api(app_api1)
 
 class TrfaAPI:
     # not implemented
@@ -52,13 +52,13 @@ class TrfaAPI:
             return jsonify(getTrfa(id))
 
     # building RESTapi resources/interfaces, these routes are added to Web Server
-    api.add_resource(_Create, '/create/<string:trfa>')
-    api.add_resource(_Read, '/')
-    api.add_resource(_ReadID, '/<int:id>')
-    api.add_resource(_ReadRandom, '/random')
-    api.add_resource(_ReadCount, '/count')
-    api.add_resource(_UpdateLike, '/like/<int:id>')
-    api.add_resource(_UpdateJeer, '/worst/<int:id>')
+    api1.add_resource(_Create, '/create/<string:trfa>')
+    api1.add_resource(_Read, '/')
+    api1.add_resource(_ReadID, '/<int:id>')
+    api1.add_resource(_ReadRandom, '/random')
+    api1.add_resource(_ReadCount, '/count')
+    api1.add_resource(_UpdateLike, '/like/<int:id>')
+    api1.add_resource(_UpdateJeer, '/worst/<int:id>')
     
 if __name__ == "__main__": 
     server = "http://127.0.0.1:5000" # run local

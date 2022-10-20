@@ -3,6 +3,7 @@ from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from model_jokes import initJokes
+from model_truefalse import initTrfa
 
 """
 These object can be used throughout project.
@@ -20,6 +21,20 @@ app.config['SECRET_KEY'] = 'SECRET_KEY'
 db = SQLAlchemy(app)
 Migrate(app, db)
 
+# app1 = Flask(__name__)
+# # Setup SQLAlchemy object and properties for the database (db)
+# dbURI = 'sqlite:///volumes/sqlite.db'
+# app1.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# app1.config['SQLALCHEMY_DATABASE_URI'] = dbURI
+# app1.config['SECRET_KEY'] = 'SECRET_KEY'
+# db = SQLAlchemy(app1)
+# Migrate(app1, db)
+
+#@app.before_first_request
+#def activate_job():
+#    initJokes()
+
 @app.before_first_request
 def activate_job():
     initJokes()
+    initTrfa()
